@@ -11,10 +11,10 @@
     <h2>Devant TV Remote</h2>
 
     <label for="tv-ip">Select TV IP:</label>
-    <select id="tv-ip">
-      <option value="192.168.1.50">Devant TV (192.168.1.50)</option>
-      <!-- Add more devices here -->
-    </select>
+    <input type="text" id="tv-ip" placeholder="Enter TV IP (e.g. 192.168.1.50)" />
+      <button onclick="scanNetwork()">Scan for TVs</button>
+      <ul id="tv-list"></ul>
+
 
     <div class="grid">
       <button onclick="sendCommand('power')">Power</button>
