@@ -2,35 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Devant TV Remote</title>
-  <style>
-    body { background: #222; color: #fff; font-family: sans-serif; text-align: center; }
-    .remote { max-width: 300px; margin: 50px auto; padding: 20px; background: #333; border-radius: 15px; }
-    button { padding: 15px; margin: 10px; width: 100px; font-size: 16px; border-radius: 10px; }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="remote">
     <h2>Devant TV Remote</h2>
-    <button onclick="sendCommand('power')">Power</button>
-    <button onclick="sendCommand('vol_up')">Vol +</button>
-    <button onclick="sendCommand('vol_down')">Vol -</button>
-    <button onclick="sendCommand('ch_up')">Ch +</button>
-    <button onclick="sendCommand('ch_down')">Ch -</button>
+
+    <label for="tv-ip">Select TV IP:</label>
+    <select id="tv-ip">
+      <option value="192.168.1.50">Devant TV (192.168.1.50)</option>
+      <!-- Add more devices here -->
+    </select>
+
+    <div class="grid">
+      <button onclick="sendCommand('power')">Power</button>
+      <button onclick="sendCommand('mute')">Mute</button>
+      <button onclick="sendCommand('source')">Source</button>
+    </div>
+
+    <div class="arrows">
+      <button onclick="sendCommand('up')">⬆️</button>
+      <div>
+        <button onclick="sendCommand('left')">⬅️</button>
+        <button onclick="sendCommand('ok')">OK</button>
+        <button onclick="sendCommand('right')">➡️</button>
+      </div>
+      <button onclick="sendCommand('down')">⬇️</button>
+    </div>
+
+    <div class="grid">
+      <button onclick="sendCommand('vol_up')">Vol +</button>
+      <button onclick="sendCommand('vol_down')">Vol -</button>
+      <button onclick="sendCommand('ch_up')">Ch +</button>
+      <button onclick="sendCommand('ch_down')">Ch -</button>
+    </div>
   </div>
 
-  <script>
-    function sendCommand(command) {
-      fetch("http://localhost:3000/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ command })
-      })
-      .then(res => res.json())
-      .then(data => console.log("Response:", data))
-      .catch(err => console.error("Error:", err));
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
