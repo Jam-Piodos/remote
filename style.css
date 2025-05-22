@@ -1,0 +1,46 @@
+body {
+  background: #121212;
+  color: #fff;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.remote {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+button {
+  background: #444;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #666;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.arrows {
+  margin: 20px 0;
+}
+.arrows > div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
